@@ -21,6 +21,20 @@ func createUser(c echo.Context) error {
 	return c.String(http.StatusOK, "name:" + name + ", email:" + email)
 }
 
+type User struct {
+	Name  string `json:"name" xml:"name" form:"name" query:"name"`
+	Email string `json:"email" xml:"email" form:"email" query:"email"`
+}
+
+func updateUser(c echo.Context) error {
+	user := new(User)
+	if err := c.Bind(user); err != nil {
+		return err
+	}
+
+	return c.JSON(http.StatusCreated, user)
+}
+
 func main() {
 	e := echo.New()
 	e.GET("/", func(c echo.Context) error {
@@ -31,9 +45,7 @@ func main() {
 	e.GET("/users", getUsers)
 	e.GET("/users/:id", getUser)
 	e.POST("/users", createUser)
-	e.PUT("/users/:id", func(c echo.Context) error {
-		return c.String(http.StatusOK, "update user by id")
-	})
+	e.PUT("/users/:id", updateUser)
 	e.DELETE("/users/:id", func(c echo.Context) error {
 		return c.String(http.StatusOK, "delete user by id")
 	})

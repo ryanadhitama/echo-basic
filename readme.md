@@ -5,3 +5,4 @@
 - [x] Path parameters
 - [x] Query parameters
 - [x] Form urlencoded
+- [x] Handling Request (json)
