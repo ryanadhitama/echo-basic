@@ -6,7 +6,8 @@ import (
 )
 
 func getUsers(c echo.Context) error {
-	return c.String(http.StatusOK, "get users")
+	name := c.QueryParam("name")
+	return c.String(http.StatusOK, "get users with name : " + name)
 }
 
 func getUser(c echo.Context) error {

@@ -2,4 +2,5 @@
 
 - [x] First route
 - [x] GET, POST, PUT, DELETE
-- [x] Path parameter
+- [x] Path parameters
+- [x] Query parameters
