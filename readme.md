@@ -4,3 +4,4 @@
 - [x] GET, POST, PUT, DELETE
 - [x] Path parameters
 - [x] Query parameters
+- [x] Form urlencoded
