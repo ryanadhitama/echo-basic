@@ -49,5 +49,6 @@ func main() {
 	e.DELETE("/users/:id", func(c echo.Context) error {
 		return c.String(http.StatusOK, "delete user by id")
 	})
+	e.Static("/static", "static")
 	e.Logger.Fatal(e.Start(":8080"))
 }

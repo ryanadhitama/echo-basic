@@ -6,3 +6,4 @@
 - [x] Query parameters
 - [x] Form urlencoded
 - [x] Handling Request (json)
+- [x] Static content
