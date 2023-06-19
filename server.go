@@ -5,6 +5,14 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
+func getUsers(c echo.Context) error {
+	return c.String(http.StatusOK, "get users")
+}
+
+func getUser(c echo.Context) error {
+	return c.String(http.StatusOK, c.Param("id"))
+}
+
 func main() {
 	e := echo.New()
 	e.GET("/", func(c echo.Context) error {
@@ -12,14 +20,10 @@ func main() {
 	})
 
 	// variant route 
-	e.GET("/users", func(c echo.Context) error {
-		return c.String(http.StatusOK, "get users")
-	})
+	e.GET("/users", getUsers)
+	e.GET("/users/:id", getUser)
 	e.POST("/users", func(c echo.Context) error {
 		return c.String(http.StatusOK, "create user")
-	})
-	e.GET("/users/:id", func(c echo.Context) error {
-		return c.String(http.StatusOK, "get user by id")
 	})
 	e.PUT("/users/:id", func(c echo.Context) error {
 		return c.String(http.StatusOK, "update user by id")
